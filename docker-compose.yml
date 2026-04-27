@@ -1,5 +1,4 @@
 version: "3.9"
-
 services:
   app:
     image: custom_ros_image:latest
@@ -12,6 +11,16 @@ services:
 
     stdin_open: true
     tty: true
+
+  # ✅ GPU support (NVIDIA)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+    # ✅ Required for NVIDIA runtime
+    runtime: nvidia
 
     volumes:
       # Target ROS package directory
@@ -28,3 +37,6 @@ services:
 
     environment:
       - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all

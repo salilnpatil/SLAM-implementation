@@ -1,15 +1,29 @@
 FROM osrf/ros:humble-desktop-full
 
-RUN apt-get update \
-    && apt-get install -y \ 
+RUN apt-get update && apt-get install -y \
     vim \
     iputils-ping \
     nano \
     bash-completion \
     python3-argcomplete \
+    curl \
+    lsb-release \
+    gnupg \
     && rm -rf /var/lib/apt/lists/*
 
-COPY config/ /site_config/
+RUN curl -sSL https://packages.osrfoundation.org/gazebo.gpg \
+    -o /usr/share/keyrings/gazebo-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/gazebo-archive-keyring.gpg] \
+    http://packages.osrfoundation.org/gazebo/ubuntu-stable \
+    $(lsb_release -cs) main" \
+    | tee /etc/apt/sources.list.d/gazebo-stable.list
+
+RUN apt-get update && apt-get install -y \
+    gz-harmonic \
+    ros-humble-ros-gz \
+    ros-humble-joint-state-publisher-gui \
+    && rm -rf /var/lib/apt/lists/*
+
 
 ARG USERNAME=ros
 ARG USER_UID=1000

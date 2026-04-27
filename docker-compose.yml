@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   app:
-    image: my_image:latest
+    image: custom_ros_image:latest
     container_name: ros-container
 
     user: "ros"
@@ -14,7 +14,16 @@ services:
     tty: true
 
     volumes:
-      - ./my_code/src:/home/ros/dev_ws
+      # Target ROS package directory
+      - ./config:/home/ros/dev_ws/src/my_bot/config
+      - ./description:/home/ros/dev_ws/src/my_bot/description
+      - ./launch:/home/ros/dev_ws/src/my_bot/launch
+      - ./worlds:/home/ros/dev_ws/src/my_bot/worlds
+
+      - ./CMakeLists.txt:/home/ros/dev_ws/src/my_bot/CMakeLists.txt
+      - ./package.xml:/home/ros/dev_ws/src/my_bot/package.xml
+
+      # X11 for GUI
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
 
     environment:

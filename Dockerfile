@@ -25,6 +25,10 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     && rm -rf /var/lib/apt/lists/*
+    
+    
+RUN mkdir -p /home/$USERNAME/dev_ws/src/my_bot \
+    && chown -R $USERNAME:$USERNAME /home/$USERNAME/dev_ws
 
 COPY entrypoint.sh /entrypoint.sh
 COPY bashrc /home/${USERNAME}/.bashrc

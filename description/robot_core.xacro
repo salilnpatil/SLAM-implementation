@@ -4,7 +4,7 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
 
-     <xacro:property name="chassis_length" value="0.335"/>
+    <xacro:property name="chassis_length" value="0.335"/>
     <xacro:property name="chassis_width" value="0.265"/>
     <xacro:property name="chassis_height" value="0.138"/>
     <xacro:property name="chassis_mass" value="1.0"/>
@@ -75,6 +75,10 @@
         </xacro:inertial_box>
     </link>
 
+     <gazebo reference="chassis">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
        
 
     <!-- left wheel-->
@@ -103,6 +107,9 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <!-- right wheel-->
 
@@ -130,6 +137,9 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
 
     <!-- CASTER WHEEL LINK -->
@@ -159,6 +169,11 @@
         </xacro:inertial_sphere>
       
     </link>
+    <gazebo reference="caster_wheel">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
 
     
 

@@ -29,6 +29,7 @@ services:
       - ./description:/home/ros/dev_ws/src/my_bot/description
       - ./launch:/home/ros/dev_ws/src/my_bot/launch
       - ./worlds:/home/ros/dev_ws/src/my_bot/worlds
+      - ./map:/home/ros/dev_ws/src/my_bot/map
 
       - ./CMakeLists.txt:/home/ros/dev_ws/src/my_bot/CMakeLists.txt
       - ./package.xml:/home/ros/dev_ws/src/my_bot/package.xml

@@ -11,6 +11,10 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     ros-humble-gazebo-ros-pkgs \
     ros-humble-joint-state-publisher-gui \
+    ros-humble-slam-toolbox \
+    ros-humble-navigation2 \
+    ros-humble-nav2-bringup \
+    ros-humble-turtlebot3* \
     && rm -rf /var/lib/apt/lists/*
 
 

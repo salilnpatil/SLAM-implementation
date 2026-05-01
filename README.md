@@ -3,7 +3,6 @@
 ![ROS 2](https://img.shields.io/badge/ROS_2-Humble-blue?logo=ros)
 ![Gazebo](https://img.shields.io/badge/Gazebo-11-orange)
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)
-![License](https://img.shields.io/badge/License-Apache_2.0-green)
 
 A full-stack mobile robotics project implementing **Simultaneous Localization and Mapping (SLAM)** and **autonomous navigation** using ROS 2 Humble. A custom differential-drive robot is built from scratch in URDF/Xacro, equipped with a 360° 2D lidar, and simulated in Gazebo. The SLAM Toolbox generates and serializes occupancy maps; Navigation2 handles autonomous path planning and execution.
 
@@ -267,7 +266,3 @@ SLAM-implementation/
 | Lidar samples | 360 rays / scan |
 
 ---
-
-## License
-
-Apache 2.0 — see [LICENSE](LICENSE).
